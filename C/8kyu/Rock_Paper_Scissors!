@@ -1,0 +1,32 @@
+## Description
+Rock Paper Scissors
+Let's play! You have to return which player won! In case of a draw return Draw!.
+
+### My solution 
+
+enum tool {ROCK, PAPER, SCISSORS};
+enum outcome {P1_WON, P2_WON, DRAW};
+
+enum outcome rps (enum tool p1, enum tool p2)
+{
+  switch (p1)
+  {
+      case ROCK:
+        if (p2 == ROCK) return DRAW;
+        else if (p2 == PAPER) return P2_WON;
+        else if (p2 == SCISSORS) return P1_WON;
+        break;
+
+      case PAPER:
+        if (p2 == ROCK) return P1_WON;
+        else if (p2 == PAPER) return DRAW;
+        else if (p2 == SCISSORS) return P2_WON;
+        break;
+
+      case SCISSORS:
+        if (p2 == ROCK) return P2_WON;
+        else if (p2 == PAPER) return P1_WON;
+        else if (p2 == SCISSORS) return DRAW;
+        break;
+  }
+}
