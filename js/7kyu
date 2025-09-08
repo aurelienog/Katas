@@ -1,0 +1,26 @@
+## Description
+
+### My solution 
+
+function solution(str, ending) {
+  let i = str.length - 1;
+  let j = ending.length - 1;
+  
+  while(j >= 0) {
+    if(ending[j] !== str[i]) {
+      return false;
+    } 
+    
+    i--;
+    j--;
+  }
+  
+  return true;
+}
+
+
+###  Better solution :
+
+function solution(str, ending){
+  return str.endsWith(ending);
+}
