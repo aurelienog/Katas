@@ -1,0 +1,31 @@
+## Description
+A number is called Automorphic number if and only if its square ends in the same digits as the number itself. For example, 25 is an automorphic number because its square (625) ends with 25.
+
+Task
+Given a positive number, determine if it is Automorphic or not. If it is, return "Automorphic", otherwise return "Not!!"
+
+### My solution 
+function automorphic(n){
+  const str = n.toString();
+  const square = (n*n).toString();
+  let i = 0;
+  let j = str.length -1;
+  let k = square.length -1;
+  
+  while(i <= str.length -1 ) {
+    if(str[j] !== square[k]) {
+      return "Not!!"
+    } else {
+      i++;
+      j--;
+      k--;
+    }
+  }
+  return "Automorphic";
+}
+}
+
+
+###  Better solution :
+const automorphic = n => String(n*n).endsWith(String(n)) ? "Automorphic" : "Not!!" ;
+}
