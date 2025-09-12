@@ -7,6 +7,10 @@ Checks for available space before appending.
 Appends as much as possible if there's not enough space.
 Always ensures the buffer remains null-terminated.
 Returns a status indicating whether the full append was possible.
+
+
+--
+
 #include <string.h>
 #include "exercise.h"
 
