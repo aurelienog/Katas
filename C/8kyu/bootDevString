@@ -1,0 +1,28 @@
+Assignment
+Complete the smart_append function. It appends a src string to a dest TextBuffer struct.
+
+It's called a "smart" append because the destination buffer is a fixed 64 bytes, and it:
+
+Checks for available space before appending.
+Appends as much as possible if there's not enough space.
+Always ensures the buffer remains null-terminated.
+Returns a status indicating whether the full append was possible.
+#include <string.h>
+#include "exercise.h"
+
+int smart_append(TextBuffer* dest, const char* src) {
+  if(!dest || !src) return 1;
+  const int max_buffer_size = 64;
+  size_t len = strlen(src);
+  size_t available_space = max_buffer_size - dest->length - 1;
+
+  if(len > available_space) {
+    strncat(dest->buffer, src, available_space);
+    dest->length = max_buffer_size - 1;
+    return 1;
+  } else {
+    strcat(dest->buffer, src);
+    dest->length = len;
+    return 0;
+  }
+}
