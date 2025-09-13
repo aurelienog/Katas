@@ -1,0 +1,32 @@
+## Description
+
+Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+
+### My solution (without using for as challenge)
+
+// Write resulting string into buffer pointed by `str_out`
+// It has enough room for `strlen(str_in) + 1` bytes
+void remove_exclamation_marks(const char *str_in, char *str_out) {
+  int i = 0;
+  int j = 0;
+  while(str_in[i] != '\0') {
+    if(str_in[i] != '!'){
+      str_out[j] = str_in[i];
+      j++;
+    } 
+    i++;
+  }
+   str_out[j] = '\0';
+}
+
+
+###  Better solution :
+
+void remove_exclamation_marks(const char *str_in, char *str_out)
+{
+  do
+  {
+    if (*str_in != '!') *str_out++ = *str_in;
+  }
+  while (*str_in++);
+};
