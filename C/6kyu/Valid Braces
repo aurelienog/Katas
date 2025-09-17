@@ -15,7 +15,6 @@ Examples
 "[(])"     =>  False
 "[({})](]" =>  False
 
-
 ---
 
 My solution :
@@ -48,6 +47,5 @@ bool valid_braces (const char *braces)
       }
     i++;
   }
-  
 	return top == -1;
 }
