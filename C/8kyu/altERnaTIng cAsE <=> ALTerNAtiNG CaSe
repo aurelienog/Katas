@@ -1,0 +1,31 @@
+description:
+altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:
+
+my solution :
+
+#include <stdlib.h>
+
+char *to_alternating_case(const char *s) {
+  char *alternate = malloc(*s * sizeof(char));
+  int i = 0;
+    
+  while(s[i] != '\0')
+  {
+    
+    //ascii uppercase 65 through 90
+    if ((s[i] >= 65) && (s[i] <= 90)) 
+    {
+      alternate[i] = s[i]+32;
+    } else if (s[i] >= 97 && (s[i] <= 122))   //ascii lowercase 97 through 122
+    {
+      alternate[i] = s[i]-32;
+    } else {
+      alternate[i] = s[i];
+    }
+    i++;
+  }
+  
+  alternate[i] = '\0';
+  return alternate;
+}
