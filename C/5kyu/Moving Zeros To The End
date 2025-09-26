@@ -1,0 +1,52 @@
+description :
+Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+
+
+my solution :
+
+#include <stddef.h>
+
+void move_zeros(size_t len, int arr[len])
+{
+  size_t i = 0;
+  size_t j = 0;
+  int ordered[len];
+  
+  while(i < len){
+    if(arr[i] != 0){
+      ordered[j++] = arr[i];
+    }
+    i++;
+  }
+  
+  while(j < len){
+    ordered[j] = 0;
+    j++;
+  }
+  
+  i = 0;
+  while(i < len) {
+    arr[i] = ordered[i];
+    i++;
+  }
+}
+
+
+better solution :
+void move_zeros(size_t len, int arr[len])
+{
+    size_t i = 0;
+    size_t j = 0;
+    while (i < len)
+    {
+      if (arr[i] != 0)  //when the value is different then zero puts it in the array 
+      {
+        arr[j] = arr[i];
+        j++;
+      }
+      i++;
+    }
+    while (j < len)    //fill the rest of the array with zeros
+      arr[j++] = 0;
+}
