@@ -1,0 +1,51 @@
+Description:
+
+Red Knight is chasing two pawns. Which pawn will be caught, and where?
+
+Input / Output
+Input will be two integers:
+
+N / n (Ruby) vertical position of Red Knight (0 or 1).
+P / p (Ruby) horizontal position of two pawns (between 2 and 1000000).
+Output has to be a tuple (python, haskell, Rust, prolog, C#), an array (javascript, ruby), an object (java), or a structure (C) with:
+
+"Black" or "White" - which pawn was caught
+Where it was caught (horizontal position)
+
+my solution :
+
+typedef struct Pawn_Distance {
+    char pawn; // 'B' or 'W'
+    unsigned distance;
+} pd;
+
+pd red_knight(unsigned N, unsigned P) {
+  pd catch;
+  _Bool zeroPosition = N;
+  unsigned horizontalPosition = 0;
+  unsigned i = 0;
+  
+    while(horizontalPosition != P){ 
+      if (i % 2 == 0){
+        P++;
+      } else {
+        horizontalPosition += 2;
+        zeroPosition = !zeroPosition;
+      }
+      i++;
+    }
+    zeroPosition ? (catch.pawn = 'B') : (catch.pawn = 'W');
+    catch.distance = P;
+    return catch;
+}
+
+Better one :
+
+typedef struct Pawn_Distance {
+  char pawn;
+  unsigned distance;
+} pd;
+
+pd red_knight(unsigned n, unsigned p) {
+  return (pd){n % 2 == p % 2 ? 'W' : 'B', 2 * p};
+}
