@@ -1,0 +1,38 @@
+Description:
+Write a program to determine if a string contains only unique characters. Return true if it does and false otherwise.
+
+The string may contain any of the 128 ASCII characters. Characters are case-sensitive, e.g. 'a' and 'A' are considered different characters.
+
+My solution:
+
+#include <stdbool.h>
+
+bool has_unique_chars(const char *str) 
+{
+    int i = 0;
+    int b = 0;
+    while (str[i])
+    {
+      b = i + 1;
+      while(str[b])
+      {
+        if (str[i] == str[b])
+          return false;
+        b++;
+      }
+      i++;
+    }
+    
+    return true;
+}
+
+Better one:
+
+bool has_unique_chars(const char *str) 
+{
+    char c, tab[128] = { 0 };
+    while (c = *str++)
+        if (tab[c]++)
+            return false;
+    return true;
+}
