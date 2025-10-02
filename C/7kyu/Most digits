@@ -1,0 +1,41 @@
+my solution:
+
+Find the number with the most digits.
+
+If two numbers in the argument array have the same number of digits, return the first one in the array.
+
+---
+
+#include <stddef.h>
+
+int countDigits(int number)
+{
+  int count;
+  count = 1;
+  
+  while(number != 0)
+  {
+    number /= 10;
+    count++;
+  }
+  return count;  
+}
+
+int find_longest(const int numbers[/* numbers_size */], size_t numbers_size)
+{
+  size_t i;
+  i = 0;
+  int most_digits;
+  most_digits = numbers[i];
+  
+  while(i < numbers_size)
+  {
+    if(countDigits(most_digits) < countDigits(numbers[i]))
+    {
+      most_digits = numbers[i];
+    }
+    i++;
+  }
+
+  return most_digits;
+}
