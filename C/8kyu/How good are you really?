@@ -1,0 +1,37 @@
+Description:
+There was a test in your class and you passed it. Congratulations!
+
+But you're an ambitious person. You want to know if you're better than the average student in your class.
+
+You receive an array with your peers' test scores. Now calculate the average and compare your score!
+
+Return true if you're better, else false!
+
+Note:
+Your points are not included in the array of your class's points. Do not forget them when calculating the average score!
+
+---
+
+#include <stdbool.h>
+
+bool better_than_average(const int class_points[], int class_size, int your_points) {
+  int sum;
+  int average;
+  int i;
+  sum = 0;
+  i = 0;
+
+  while(i < class_size)
+  {
+    sum += class_points[i];
+    i++;
+  }
+  
+  average = sum / (class_size);
+  
+  if(your_points > average){
+    return true;
+  } else {
+    return false;
+  } 
+}
