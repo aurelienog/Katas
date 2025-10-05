@@ -1,0 +1,59 @@
+my solution:
+
+#include <stdbool.h>
+
+int char_to_value(char c)
+{
+  if(c >= '0' && c <= '9') {
+    return c - '0';
+  } else if(c >= 'A' && c <= 'Z')
+  {
+    return(c - 'A' + 10);
+  } else if(c >= 'a' && c <= 'z')
+  {
+    return(c - 'a' + 10);
+  } else {
+    return -1;
+  }
+}
+
+bool validate_base(const char *num, unsigned base) {
+
+  int i = 0;
+  
+  while(num[i] != '\0') 
+  {
+    int value = char_to_value(num[i]);
+    if((value < 0) || (value >= (int)base)) return false;
+    i++;
+  }
+  
+    return true;
+}
+
+Better one :
+
+#include <stdbool.h>
+
+bool validate_base(const char *num, unsigned base) {
+    if (base < 2 || base > 36) {
+        return false;
+    }
+    
+    for (int i = 0; num[i] != '\0'; i++) {
+        char c = num[i];
+        int value;
+        if (c >= '0' && c <= '9') {
+            value = c - '0';
+        } else if (c >= 'A' && c <= 'Z') {
+            value = 10 + (c - 'A');
+        } else {
+            return false;
+        }
+        
+        if (value >= (int)base) {
+            return false;
+        }
+    }
+    
+    return true;
