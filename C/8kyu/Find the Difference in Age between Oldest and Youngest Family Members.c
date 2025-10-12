@@ -9,6 +9,7 @@ You will be given an array of all the family members' ages, in any order. The ag
 int *difference_in_ages(size_t a, const int ages[a]) {
   int *min_max_difference_ages;
   min_max_difference_ages = malloc(3 * sizeof(int));
+  if(!min_max_difference_ages) return NULL;
   size_t i = 0;
   min_max_difference_ages[0] = ages[0];
   min_max_difference_ages[0] = ages[1];
