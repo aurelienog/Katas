@@ -33,8 +33,23 @@ void convert(char result[], int drops)
         strcat(result, "Plong");
     }
 
-    if(drops % 3 != 0 && drops % 5 && drops % 7)
+    if(drops % 3 != 0 && drops % 5 != 0 && drops % 7 != 0)
     {
         sprintf(result, "%d", drops);
     }
 }
+
+/* Better solution:
+void convert(char result[], int drops)
+{
+   if (drops % 3 == 0)
+      strcat(result, "Pling");
+   if (drops % 5 == 0)
+      strcat(result, "Plang");
+   if (drops % 7 == 0)
+      strcat(result, "Plong");
+
+   if (strlen(result) == 0)
+      sprintf(result, "%d", drops);
+}
+*/
